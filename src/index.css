@@ -209,10 +209,7 @@ body {
 .small {
   font-size: 8px !important;
 }
-.space {
-  margin-left: -6px;
-}
-@media print {
+/* @media print {
   body * {
     visibility: hidden;
   }
@@ -251,4 +248,222 @@ body {
     height: 100%;
     overflow: hidden;
   }
+} */
+
+@media print {
+  /* Hide everything except sticker */
+  body * {
+    visibility: hidden !important;
+  }
+
+  .sticker,
+  .sticker * {
+    visibility: visible !important;
+  }
+
+  /* Position sticker absolutely at top-left */
+  .sticker {
+    position: absolute !important;
+    top: 20% !important;
+    left: 20% !important;
+    width: 47.2mm !important;
+    height: 72mm !important;
+    margin: 0 !important;
+
+    box-shadow: none !important;
+    background: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Remove margins/paddings on page */
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* Page size and margin */
+  @page {
+    size: A4;
+    /* size: 47.2mm 72mm; You can try size: 4.72cm 7.2cm; if your printer supports */
+    margin: none;
+  }
+}
+
+/* StickerPreview.css */
+.sticker-preview-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 0.25rem;
+  gap: 20px;
+}
+
+.sticker {
+  position: relative;
+  width: 47.2mm;
+  height: 72mm;
+  border: 2px solid #333;
+  background: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.barcode-section {
+  position: absolute;
+  left: 9px;
+  top: 10px;
+  border: 1px solid #ccc;
+  background: white;
+  width: 21mm;
+  height: 66mm;
+}
+
+.serial-number {
+  position: absolute;
+  left: 55%;
+  bottom: 10%;
+  font-size: 6px;
+  color: #666;
+  transform: rotate(-90deg);
+  transform-origin: left bottom;
+  width: 200px;
+}
+
+.info-section {
+  position: relative;
+  left: 98px;
+  top: 8px;
+  width: 80px;
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.info-title {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  font-size: 18px;
+}
+
+.ref-box {
+  position: relative;
+  left: 45%;
+  border: 1px solid #6c757d;
+  display: inline-block;
+  padding: 0 0.25rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.6rem;
+}
+
+.label {
+  font-weight: bold;
+  border: 1px solid #6c757d;
+  padding: 0 0.25rem;
+  min-width: 0.7rem;
+  font-size: 0.4rem;
+}
+
+.info-value {
+  font-size: 9px;
+}
+
+.temperature-section {
+  font-size: 9px;
+  position: relative;
+  margin-top: 0.8rem;
+}
+.temperature-section span {
+  font-size: 0.5rem;
+}
+.high {
+  position: absolute;
+  right: 45%;
+  font-size: 6px !important;
+  bottom: 80%;
+}
+.low {
+  position: absolute;
+  top: 40%;
+  left: 13%;
+  font-size: 6px !important;
+}
+.icon {
+  position: absolute;
+  left: 30%;
+}
+.line {
+  width: ".6rem";
+  position: "absolute";
+  left: "28%";
+  top: "95%";
+  height: "1px";
+  background: "#444";
+  transform: "rotate(320deg)";
+}
+
+.ivd-badge {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 5%;
+  left: 56%;
+  top: 64%;
+  font-size: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.small-qr-section {
+  position: absolute;
+  right: 5%;
+  bottom: 12%;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #ccc;
+}
+
+.bottom-info {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 10px;
+  left: 101px;
+  right: 8px;
+  font-size: 9px;
+}
+
+.space {
+  letter-spacing: 1px;
+  font-size: 6px !important;
+  margin-left: -4px;
+}
+
+.roche-badge {
+  border: 1px solid #6c757d;
+  border-radius: 50rem;
+  padding: 0 0.5rem;
+  font-size: 7px !important;
+}
+
+.print-button {
+  height: 40px;
+  align-self: center;
+  cursor: pointer;
+  padding: 0 16px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  user-select: none;
+}
+
+.ivd-label {
+  font-weight: bold;
+  border: 1px solid #6c757d;
+  padding: 0 0.25rem;
 }
