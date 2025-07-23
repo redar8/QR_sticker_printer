@@ -1,0 +1,159 @@
+.sticker-preview-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+}
+
+.sticker {
+  position: relative;
+  width: 47.2mm;
+  height: 72mm;
+  border: 2px solid #333;
+  background: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Barcode Section */
+.barcode-section {
+  position: absolute;
+  left: 9px;
+  top: 10px;
+  border: 1px solid #ccc;
+  background: white;
+  width: 21mm;
+  height: 66mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  overflow: hidden;
+}
+
+.barcode-section img,
+.barcode-section canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  image-rendering: pixelated;
+}
+
+/* Serial Number */
+.serial-number {
+  position: absolute;
+  left: 53%;
+  bottom: 25%;
+  font-size: 6px;
+  color: #666;
+  transform: rotate(-90deg);
+  transform-origin: left bottom;
+  width: 200px;
+}
+
+/* Info Section */
+.info-section {
+  position: absolute;
+  left: 6rem;
+  top: 5px;
+  width: 80px;
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.info-title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.label {
+  font-weight: bold;
+  border: 1.5px solid #1a1d1f;
+  padding: 0 2px;
+  min-width: 15px;
+  font-size: 8px;
+}
+
+.label-me {
+  font-weight: bold;
+  border: 1.5px solid #1a1d1f;
+  border-right: none;
+  border-bottom: none;
+  padding: 0 2px;
+  min-width: 15px;
+  font-size: 8px;
+  margin-top: 6px; /* subtler spacing than padding */
+  display: inline-block;
+}
+
+.info-value {
+  font-size: 8px;
+  margin-left: 2px;
+}
+.info-value-me {
+  font-size: 8px;
+  margin-left: 8px;
+}
+
+.temperature-section {
+  margin-top: 4px;
+  font-size: 10px;
+}
+
+.temperature-section .icon svg {
+  font-size: 9px;
+  color: #444;
+}
+
+.line {
+  height: 1px;
+  background-color: #ccc;
+  margin: 2px 0;
+  transform: rotate(10deg);
+}
+
+.info-line-me {
+  margin-top: -6.6px;
+}
+
+/* Small QR Code */
+.small-qr-section {
+  position: absolute;
+  right: 8px;
+  bottom: 40px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+}
+
+.small-qr-section img,
+.small-qr-section canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Bottom Info */
+.bottom-info {
+  position: absolute;
+  top: 90%;
+  left: 101px;
+  right: 8px;
+  font-size: 9px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Roche SVG overrides if needed */
+.sticker svg {
+  display: block;
+}
+.icon-small {
+  height: 12px;
+  width: 12px;
+}
+.my-icon {
+  margin-left: 0.5rem;
+  height: 30px;
+  width: 30px;
+}

@@ -1,5 +1,6 @@
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
   min-height: 100vh;
   background: white;
 
@@ -288,7 +289,6 @@ body {
   /* Page size and margin */
   @page {
     size: A4;
-    /* size: 47.2mm 72mm; You can try size: 4.72cm 7.2cm; if your printer supports */
     margin: none;
   }
 }
@@ -299,8 +299,7 @@ body {
   justify-content: center;
   padding: 1rem;
   background-color: #f8f9fa;
-  border-radius: 0.25rem;
-  gap: 20px;
+  border-radius: 0.5rem;
 }
 
 .sticker {
@@ -312,20 +311,35 @@ body {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
+/* Barcode Section */
 .barcode-section {
   position: absolute;
   left: 9px;
   top: 10px;
-  border: 1px solid #ccc;
+  border: none;
   background: white;
   width: 21mm;
   height: 66mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  overflow: hidden;
 }
 
+.barcode-section img,
+.barcode-section canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  image-rendering: pixelated;
+}
+
+/* Serial Number */
 .serial-number {
   position: absolute;
-  left: 55%;
-  bottom: 10%;
+  left: 55.5%;
+  bottom: 13%;
   font-size: 6px;
   color: #666;
   transform: rotate(-90deg);
@@ -333,10 +347,11 @@ body {
   width: 200px;
 }
 
+/* Info Section */
 .info-section {
-  position: relative;
-  left: 98px;
-  top: 8px;
+  position: absolute;
+  left: 6.3rem;
+  top: 5px;
   width: 80px;
   font-size: 11px;
   line-height: 1.3;
@@ -344,64 +359,111 @@ body {
 
 .info-title {
   font-weight: bold;
-  margin-bottom: 0.25rem;
   font-size: 18px;
+}
+
+.label {
+  font-weight: bold;
+  border: 1px solid #1a1d1f;
+  padding: 0 1px;
+  min-width: 15px;
+  font-size: 8px;
+}
+
+.label-me {
+  font-weight: bold;
+  border: 1px solid #1a1d1f;
+  border-right: none;
+  border-bottom: none;
+  padding: 1px 2px;
+  min-width: 15px;
+  font-size: 8px;
+  margin-top: 8px;
+  display: inline-block;
+}
+.r1-value {
+  text-align: right;
+}
+.r2-bottom-border {
+  border-bottom: 1px solid #1a1d1f;
+}
+
+.info-value {
+  font-size: 8px;
+  margin-left: 2px;
+  font-weight: 600;
+  text-align: right;
+}
+.info-value-me {
+  font-size: 9px;
+  margin-left: 4px;
+}
+
+.line {
+  height: 1px;
+  background-color: #ccc;
+  margin: 2px 0;
+  transform: rotate(10deg);
+}
+
+.info-line-me {
+  margin-top: -8.8px;
+}
+.info-line-ref {
+  margin-bottom: 2px;
+}
+
+.small-qr-section img,
+.small-qr-section canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Bottom Info */
+.bottom-info {
+  position: absolute;
+  top: 90%;
+  left: 63%;
+  right: 8px;
+  font-size: 9px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Roche SVG overrides if needed */
+.sticker svg {
+  display: block;
+}
+.expire {
+  font-size: 7.5px;
+}
+.icon-small {
+  height: 12px;
+  width: 12px;
+  margin-left: 4px;
+}
+.my-icon {
+  margin-left: 0.6rem;
+  margin-top: 3px;
+  height: 35px;
+  width: 35px;
 }
 
 .ref-box {
   position: relative;
   left: 45%;
-  border: 1px solid #6c757d;
+  border: 1px solid #1a1d1f;
   display: inline-block;
-  padding: 0 0.25rem;
-  margin-bottom: 0.25rem;
+  padding: 0 0.1rem;
+  margin: 3px 0;
   font-size: 0.6rem;
 }
-
-.label {
-  font-weight: bold;
-  border: 1px solid #6c757d;
-  padding: 0 0.25rem;
-  min-width: 0.7rem;
-  font-size: 0.4rem;
+.date-label {
+  margin-top: 3px;
 }
-
-.info-value {
-  font-size: 9px;
-}
-
-.temperature-section {
-  font-size: 9px;
-  position: relative;
-  margin-top: 0.8rem;
-}
-.temperature-section span {
-  font-size: 0.5rem;
-}
-.high {
-  position: absolute;
-  right: 45%;
-  font-size: 6px !important;
-  bottom: 80%;
-}
-.low {
-  position: absolute;
-  top: 40%;
-  left: 13%;
-  font-size: 6px !important;
-}
-.icon {
-  position: absolute;
-  left: 30%;
-}
-.line {
-  width: ".6rem";
-  position: "absolute";
-  left: "28%";
-  top: "95%";
-  height: "1px";
-  background: "#444";
-  transform: "rotate(320deg)";
+.only-num {
+  font-weight: 300;
 }
 
 .ivd-badge {
@@ -409,44 +471,25 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  bottom: 5%;
-  left: 56%;
-  top: 64%;
+  bottom: 22%;
+  left: 61%;
   font-size: 0.6rem;
   margin-top: 0.5rem;
 }
 
 .small-qr-section {
   position: absolute;
-  right: 5%;
+  right: 4%;
   bottom: 12%;
-  width: 2rem;
-  height: 2rem;
-  border: 1px solid #ccc;
-}
-
-.bottom-info {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  bottom: 10px;
-  left: 101px;
-  right: 8px;
-  font-size: 9px;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: none;
 }
 
 .space {
-  letter-spacing: 1px;
-  font-size: 6px !important;
+  font-size: 8px !important;
   margin-left: -4px;
-}
-
-.roche-badge {
-  border: 1px solid #6c757d;
-  border-radius: 50rem;
-  padding: 0 0.5rem;
-  font-size: 7px !important;
+  font-weight: 700;
 }
 
 .print-button {
@@ -464,6 +507,22 @@ body {
 
 .ivd-label {
   font-weight: bold;
-  border: 1px solid #6c757d;
-  padding: 0 0.25rem;
+  border: 1px solid #1a1d1f;
+  padding: 0 1px;
+  font-size: 10px !important;
+  font-weight: 700;
+}
+
+.vertical-barcode {
+  transform: rotate(90deg);
+  transform-origin: center;
+  height: 60px;
+  width: 200px;
+}
+
+.barcode-section {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
