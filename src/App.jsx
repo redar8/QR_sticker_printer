@@ -15,6 +15,7 @@ function App() {
     r2: "8.5 mL",
     lot: "80642201",
     expiry: "2026-02-28",
+    serial: "8888888888",
   });
 
   const [longQrImage, setLongQrImage] = useState(null);
