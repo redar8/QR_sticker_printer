@@ -80,9 +80,13 @@ body {
   }
 
   /* Page size and margin */
-  @page {
+  /* @page {
     size: A4;
     margin: none;
+  } */
+  @page {
+    size: 47.2mm 72mm !important;
+    margin: 0;
   }
 }
 
